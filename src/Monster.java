@@ -1,19 +1,21 @@
 public class Monster {
-    
+
     private int pvMonster;
     private double degatsMonster;
     private double monsterArmor;
+    private boolean lifeMonster;
 
     public Monster() {
-        pvMonster = 30;
-        degatsMonster = 5;
-        monsterArmor = 0;
+        pvMonster = 40;
+        degatsMonster = 10;
+        monsterArmor = 5;
     }
 
-    public Monster(int pvMonster, double degatsMonster, double Armor) {
+    public Monster(int pvMonster, double degatsMonster, double monsterArmor) {
         this.pvMonster = pvMonster;
         this.degatsMonster = degatsMonster;
-        this.monsterArmor = Armor;
+        this.monsterArmor = monsterArmor;
+        this.lifeMonster = true;
     }
 
     public Monster(int pvMonster) {
@@ -24,12 +26,16 @@ public class Monster {
         return this.pvMonster;
     }
 
-    public double getDegat() {
+    public double getDegatMonster() {
         return this.degatsMonster;
     }
 
-    public double getArmor() {
+    public double getArmorMonster() {
         return this.monsterArmor;
+    }
+
+    public boolean getlifeMonster() {
+        return this.lifeMonster;
     }
 
     public void setpvMonster(int pvMonster) {
@@ -40,7 +46,11 @@ public class Monster {
         this.degatsMonster = degatMonster;
     }
 
-    public void setArmor(double Armor) {
-        this.monsterArmor = Armor;
+    public void setArmor(double monsterArmor) {
+        this.monsterArmor = monsterArmor;
+    }
+
+    public void setLife() {
+        this.lifeMonster = true;
     }
 }

@@ -1,47 +1,47 @@
 public class Hero {
-    
-    private int pv;
-    private double Degats;
-    private double Armor;
+
+    private int pvHero;
+    private double degatHero;
+    private double armorHero;
 
     public Hero() {
-        pv = 30;
-        Degats = 5;
-        Armor = 0;
+        pvHero = 30;
+        degatHero = 5;
+        armorHero = 0;
     }
 
     public Hero(int pv, double Degats, double Armor) {
-        this.pv = pv;
-        this.Degats = Degats;
-        this.Armor = Armor;
+        this.pvHero = pv;
+        this.degatHero = Degats;
+        this.armorHero = Armor;
     }
 
     public Hero(int pv) {
-        this.pv = pv;
+        this.pvHero = pv;
     }
 
     public int getPv() {
-        return this.pv;
+        return this.pvHero;
     }
 
     public double getDegat() {
-        return this.Degats;
+        return this.degatHero;
     }
 
     public double getArmor() {
-        return this.Armor;
+        return this.armorHero;
     }
 
-    public void setPv(int pv) {
-        this.pv = pv;
+    public void setPv(int pvHero) {
+        this.pvHero = pvHero;
     }
 
     public void setDegat(double Degats) {
-        this.Degats = Degats;
+        this.degatHero = Degats;
     }
 
     public void setArmor(double Armor) {
-        this.Armor = Armor;
+        this.armorHero = Armor;
     }
 
 }

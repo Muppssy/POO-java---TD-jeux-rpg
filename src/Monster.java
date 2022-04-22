@@ -6,9 +6,9 @@ public class Monster {
     private boolean lifeMonster;
 
     public Monster() {
-        pvMonster = 40;
-        degatsMonster = 10;
-        monsterArmor = 5;
+        pvMonster = 30;
+        degatsMonster = 8;
+        monsterArmor = 2;
     }
 
     public Monster(int pvMonster, double degatsMonster, double monsterArmor) {
@@ -38,7 +38,7 @@ public class Monster {
         return this.lifeMonster;
     }
 
-    public void setpvMonster(int pvMonster) {
+    public void setPvMonster(int pvMonster) {
         this.pvMonster = pvMonster;
     }
 
@@ -53,4 +53,24 @@ public class Monster {
     public void setLife() {
         this.lifeMonster = true;
     }
+
+    public void monsterPlay() {
+
+    }
+
+    public void monsterAttack(Hero m) {
+        double degatMonster = m.getPvHero() - (this.getDegatMonster() - m.getArmorHero());
+
+        m.setPvHero((int) degatMonster);
+        System.out.println(" Le Monstre attack!! ");
+        System.out.println(m);
+
+    }
+
+    public void monsterParade() {
+
+     
+    }
+
+   
 }

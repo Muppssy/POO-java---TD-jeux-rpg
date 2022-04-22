@@ -3,45 +3,58 @@ public class Hero {
     private int pvHero;
     private double degatHero;
     private double armorHero;
-
+    
     public Hero() {
         pvHero = 30;
-        degatHero = 5;
-        armorHero = 0;
+        degatHero = 4;
+        armorHero = 5;
     }
 
-    public Hero(int pv, double Degats, double Armor) {
-        this.pvHero = pv;
-        this.degatHero = Degats;
-        this.armorHero = Armor;
+    public Hero(int pvHero, double degatHero, double armorHero) {
+        this.pvHero = pvHero;
+        this.degatHero = degatHero;
+        this.armorHero = armorHero;
     }
 
-    public Hero(int pv) {
-        this.pvHero = pv;
-    }
-
-    public int getPv() {
-        return this.pvHero;
-    }
-
-    public double getDegat() {
-        return this.degatHero;
-    }
-
-    public double getArmor() {
-        return this.armorHero;
-    }
-
-    public void setPv(int pvHero) {
+    public Hero(int pvHero) {
         this.pvHero = pvHero;
     }
 
-    public void setDegat(double Degats) {
-        this.degatHero = Degats;
+    public int getPvHero() {
+        return this.pvHero;
     }
 
-    public void setArmor(double Armor) {
-        this.armorHero = Armor;
+    public double getDegatHero() {
+        return this.degatHero;
     }
 
+    public double getArmorHero() {
+        return this.armorHero;
+    }
+
+    public void setPvHero(int pvHero) {
+        this.pvHero = pvHero;
+    }
+
+    public void setDegatHero(double degatHero) {
+        this.degatHero = degatHero;
+    }
+
+    public void setArmorHero(double armorHero) {
+        this.armorHero = armorHero;
+    }
+
+   
+
+    public void heroAttack(Monster a) {
+
+        double degatHero = a.getpvMonster() - (this.getDegatHero() - a.getArmorMonster());
+        a.setPvMonster((int) degatHero);
+        System.out.println(" Votre hero attack!! ");
+        System.out.println(a);
+    }
+
+    
+
+   
 }

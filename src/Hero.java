@@ -1,19 +1,24 @@
+import java.util.*;
+
 public class Hero {
 
     private int pvHero;
     private double degatHero;
     private double armorHero;
-    
+    private double paradHero;
+
     public Hero() {
         pvHero = 30;
         degatHero = 4;
-        armorHero = 5;
+        armorHero = 10;
+        paradHero = armorHero;
     }
 
-    public Hero(int pvHero, double degatHero, double armorHero) {
+    public Hero(int pvHero, double degatHero, double armorHero, double paradHero) {
         this.pvHero = pvHero;
         this.degatHero = degatHero;
         this.armorHero = armorHero;
+        this.paradHero = armorHero;
     }
 
     public Hero(int pvHero) {
@@ -32,6 +37,10 @@ public class Hero {
         return this.armorHero;
     }
 
+    public double getParadHero() {
+        return this.paradHero;
+    }
+
     public void setPvHero(int pvHero) {
         this.pvHero = pvHero;
     }
@@ -44,7 +53,9 @@ public class Hero {
         this.armorHero = armorHero;
     }
 
-   
+    public void setParadHero() {
+        this.paradHero = armorHero;
+    }
 
     public void heroAttack(Monster a) {
 
@@ -52,9 +63,36 @@ public class Hero {
         a.setPvMonster((int) degatHero);
         System.out.println(" Votre hero attack!! ");
         System.out.println(a);
+        paradHero = armorHero;
     }
 
-    
+    public void playGame(Monster a) {
+        System.out.println(" Choisir 1 pour attaquer, Choisir 2 pour parer ");
+        Scanner input = new Scanner(System.in);
+        int choice = input.nextInt();
 
-   
+        if (choice == 1) {
+            System.out.println("Hero attaque");
+            heroAttack(a);
+        }
+
+        if (choice == 2) {
+            System.out.println("Hero se defends");
+            paradHero();
+        }
+        //  else {
+        //     System.out.println("C'est 1 ou 2 tête de gland");
+        //     choice = input.nextInt();
+        // }
+
+    }
+
+    public void paradHero() {
+        paradHero = armorHero * 2;
+    }
+
+    public String toString() {
+        return "Pv " + pvHero + " Degats " + degatHero + " Armures " + armorHero;
+    }
+
 }

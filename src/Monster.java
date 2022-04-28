@@ -1,20 +1,25 @@
+import java.util.Random;
+
 public class Monster {
 
     private int pvMonster;
     private double degatsMonster;
     private double monsterArmor;
     private boolean lifeMonster;
+    private double paradMonster;
 
     public Monster() {
         pvMonster = 30;
         degatsMonster = 8;
-        monsterArmor = 2;
+        monsterArmor = 1;
+        paradMonster = monsterArmor;
     }
 
-    public Monster(int pvMonster, double degatsMonster, double monsterArmor) {
+    public Monster(int pvMonster, double degatsMonster, double monsterArmor, double paradMonster) {
         this.pvMonster = pvMonster;
         this.degatsMonster = degatsMonster;
         this.monsterArmor = monsterArmor;
+        this.paradMonster = monsterArmor;
         this.lifeMonster = true;
     }
 
@@ -38,6 +43,10 @@ public class Monster {
         return this.lifeMonster;
     }
 
+    public double getParadMonster() {
+        return this.paradMonster;
+    }
+
     public void setPvMonster(int pvMonster) {
         this.pvMonster = pvMonster;
     }
@@ -54,8 +63,23 @@ public class Monster {
         this.lifeMonster = true;
     }
 
-    public void monsterPlay() {
+    public void setParadMonster() {
+        this.paradMonster = monsterArmor;
+    }
 
+    public void monsterPlay(Hero m) {
+        Random randomMonster = new Random();
+        int de = randomMonster.nextInt(20);
+
+        if (de >= 10) {
+            System.out.println("Le Monstre attaque");
+            monsterAttack(m);
+        }
+
+        if (de < 10) {
+            System.out.println(" Le Monstre fait  sa parade");
+            monsterParade();
+        }
     }
 
     public void monsterAttack(Hero m) {
@@ -64,13 +88,22 @@ public class Monster {
         m.setPvHero((int) degatMonster);
         System.out.println(" Le Monstre attack!! ");
         System.out.println(m);
+        paradMonster = monsterArmor;
 
+        int neg = degatMonster - m.getArmorHero();
+
+        if (neg <= 0) {
+            neg = 1;
+
+        } 
     }
 
     public void monsterParade() {
-
-     
+        paradMonster = monsterArmor * 2;
     }
 
-   
+    public String toString() {
+        return " Pv " + pvMonster + " Degats " + degatsMonster + " Armures" + monsterArmor;
+    }
+
 }
